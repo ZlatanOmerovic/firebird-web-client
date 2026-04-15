@@ -139,7 +139,6 @@ export function SqlEditor({ onStatusUpdate }: SqlEditorProps) {
   }, []);
 
   const historyEntries = loadHistory();
-  const history = historyEntries.map((e) => e.query);
 
   return (
     <div className="flex flex-col h-full">

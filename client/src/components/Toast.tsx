@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { X, AlertCircle, CheckCircle2, Code, Copy, Check, Play, ExternalLink, Clock } from 'lucide-react';
+import { X, AlertCircle, CheckCircle2, Code, Copy, Check, ExternalLink, Clock } from 'lucide-react';
 import { SqlHighlight } from './SqlHighlight';
 
 interface ToastItem {

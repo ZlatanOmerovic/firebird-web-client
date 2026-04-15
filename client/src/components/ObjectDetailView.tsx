@@ -25,11 +25,10 @@ import {
   dropDomain,
   getTableSchema,
   deleteRow,
-  insertRow,
   updateRow,
   executeSql,
 } from '../lib/api';
-import { Loader2, Pencil, Trash2, Plus, Check, X, Power, RefreshCw, ChevronLeft, ChevronRight, ChevronUp, ChevronDown, ArrowUpDown, Search, Download } from 'lucide-react';
+import { Loader2, Pencil, Trash2, Plus, Check, X, Power, RefreshCw, ChevronUp, ChevronDown, ArrowUpDown, Search, Download } from 'lucide-react';
 import { PaginationBar } from './PaginationBar';
 import { DataFilterBar } from './DataFilterBar';
 import { TruncateCell } from './TruncateCell';
@@ -58,14 +57,6 @@ function Loading() {
   );
 }
 
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="text-xs font-medium text-text-secondary uppercase tracking-wide mb-2">
-      {children}
-    </h3>
-  );
-}
-
 function ErrorBanner({ error, onDismiss }: { error: string; onDismiss: () => void }) {
   return (
     <div className="flex items-start gap-2 px-4 py-3 bg-error-subtle border border-error/20 rounded-lg text-error text-sm">
@@ -77,10 +68,6 @@ function ErrorBanner({ error, onDismiss }: { error: string; onDismiss: () => voi
 
 function CodeViewer({ code }: { code: string | null }) {
   return <SqlHighlight code={code} />;
-}
-
-function ActionBar({ children }: { children: React.ReactNode }) {
-  return <div className="flex items-center gap-2">{children}</div>;
 }
 
 function BtnRefresh({ onClick }: { onClick: () => void }) {

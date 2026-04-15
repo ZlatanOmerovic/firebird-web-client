@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Download, X, Loader2, FileSpreadsheet, Braces, Database, FileText, Code, Table2 } from 'lucide-react';
+import { Download, X, Loader2, FileSpreadsheet, Braces, Database, Code, Table2 } from 'lucide-react';
 import { Checkbox } from './Checkbox';
 import { useSettings } from '../hooks/useSettings';
 import { exportRows, type ExportFormat } from '../lib/exportUtils';

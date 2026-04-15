@@ -6,7 +6,7 @@ A full-featured web-based IDE for Firebird databases. Two workspaces:
 - `server/` — Node.js + Fastify + TypeScript API proxy (port 3001)
 - `client/` — React 19 + Vite + TypeScript + Tailwind CSS v4 frontend (port 5173)
 
-Read `SPECS.md` for detailed API contracts and `README.md` for user-facing docs.
+Read `SPECS.md` for detailed API contracts, `README.md` for user-facing docs, `CONTRIBUTING.md` for development workflow, and `DOCKER.md` for deployment.
 
 ---
 
