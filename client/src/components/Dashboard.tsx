@@ -8,7 +8,7 @@ import type { QueryResult } from '../lib/api';
 import {
   Table2, Eye, Play, Zap, Hash, Box, Terminal,
   Database, Server, Clock, HardDrive, User, Globe,
-  Plus, Loader2, History, Copy, Check, Settings,
+  Loader2, History, Copy, Check, Settings,
   Keyboard, Lightbulb, BarChart3, Layers, BookOpen, ExternalLink, Download,
 } from 'lucide-react';
 
