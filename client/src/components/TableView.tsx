@@ -42,8 +42,6 @@ function formatDate(d: Date, fmt: string): string {
 import {
   ChevronUp,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Pencil,
   Trash2,
   Plus,
