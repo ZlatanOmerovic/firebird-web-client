@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Firebird-Web%20Client-3b82f6?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48ZWxsaXBzZSBjeD0iMTIiIGN5PSI1IiByeD0iOSIgcnk9IjMiLz48cGF0aCBkPSJNMyA1djE0YzAgMS42NiA0LjAzIDMgOSAzczktMS4zNCA5LTNWNS8+PHBhdGggZD0iTTMgMTJjMCAxLjY2IDQuMDMgMyA5IDNzOS0xLjM0IDktMyIvPjwvc3ZnPg==&logoColor=white" alt="Firebird Web Client" />
+  <img src="https://img.shields.io/badge/Firebird-Web%20Client-3b82f6?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxlbGxpcHNlIGN4PSIxMiIgY3k9IjUiIHJ4PSI5IiByeT0iMyIvPjxwYXRoIGQ9Ik0zIDV2MTRjMCAxLjY2IDQuMDMgMyA5IDNzOS0xLjM0IDktM1Y1Ii8+PHBhdGggZD0iTTMgMTJjMCAxLjY2IDQuMDMgMyA5IDNzOS0xLjM0IDktMyIvPjwvc3ZnPgo=&logoColor=white" alt="Firebird Web Client" />
 </p>
 
 <p align="center">
@@ -145,6 +145,8 @@ docker pull zlomerovic/firebird-web-client:latest
 docker pull zlomerovic/firebird-web-server:latest
 ```
 
+> **Full Docker guide**: See [DOCKER.md](DOCKER.md) for detailed configuration, connecting to external Firebird, troubleshooting, and production deployment.
+
 ---
 
 ## Scripts
@@ -260,6 +262,23 @@ firebird-web-client/
 | `Double-click cell` | Edit cell inline |
 | `Click row` | Toggle row selection |
 | `Double-click row` | Navigate to object (in list pages) |
+
+---
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [README.md](README.md) | This file — overview, quick start, API reference |
+| [DOCKER.md](DOCKER.md) | Docker deployment guide — compose, configuration, troubleshooting |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute — git flow, coding standards, PR process |
+| [SPECS.md](SPECS.md) | Full technical specification — endpoints, types, components |
+| [CLAUDE.md](CLAUDE.md) | AI development guide — architecture, Firebird quirks, patterns |
+| [TODO.md](TODO.md) | Roadmap — planned features, known issues |
+| [CHANGELOG.md](CHANGELOG.md) | Version history |
+| [SECURITY.md](SECURITY.md) | Security policy and vulnerability reporting |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor code of conduct |
+| [LICENSE](LICENSE) | MIT License |
 
 ---
 
