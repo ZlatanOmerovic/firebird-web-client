@@ -94,8 +94,6 @@ export function ReactiveBackground({ audio, active }: ReactiveBackgroundProps) {
       prevEnergyRef.current += (totalEnergy - prevEnergyRef.current) * 0.1;
       const smoothEnergy = prevEnergyRef.current;
 
-      const t = timeRef.current;
-
       // ── Pulsing radial glow ───────────────────────────────
       const glowScale = 1 + bassEnergy * 0.3;
       const glowAlpha = 0.04 + bassEnergy * 0.08;

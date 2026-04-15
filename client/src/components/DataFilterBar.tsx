@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { Search, Plus, X, Filter, Trash2 } from 'lucide-react';
 import { Tooltip } from './Tooltip';
 import type { FilterState, ColumnFilter, FilterOperator } from '../lib/filters';
-import { OPERATOR_LABELS, getOperatorsForType, isNoValueOperator, EMPTY_FILTER_STATE, hasActiveFilters } from '../lib/filters';
+import { OPERATOR_LABELS, getOperatorsForType, isNoValueOperator, EMPTY_FILTER_STATE } from '../lib/filters';
 
 interface DataFilterBarProps {
   filters: FilterState;

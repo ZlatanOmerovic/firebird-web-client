@@ -12,8 +12,6 @@ import {
   ProcedureView,
   TriggerView,
   ViewDetailView,
-  GeneratorsView,
-  DomainsView,
 } from './components/ObjectDetailView';
 // New object modals are rendered inside ObjectListPage
 import { DisconnectModal } from './components/DisconnectModal';
@@ -21,10 +19,10 @@ import { Dashboard } from './components/Dashboard';
 import { SettingsPage } from './components/SettingsPage';
 import { HistoryPage } from './components/HistoryPage';
 import { ObjectListPage } from './components/ObjectListPage';
-import { GlobalRequestIndicator } from './components/GlobalRequestIndicator';
+
 import { ServerHealthIndicator } from './components/ServerHealthIndicator';
 import { AudioVisualizer } from './components/AudioVisualizer';
-import { LogOut, Loader2, Sun, Moon, Terminal, Settings, LayoutDashboard, History, Palette } from 'lucide-react';
+import { LogOut, Sun, Moon, Settings, LayoutDashboard, History } from 'lucide-react';
 import { ACCENT_COLORS, getAccentIndex, setAccentIndex, applyAccentColor } from './lib/accentColors';
 import { Tooltip } from './components/Tooltip';
 import { useSettings } from './hooks/useSettings';
@@ -129,7 +127,7 @@ function getSelectionLabel(sel: DbObjectSelection | null): string {
 }
 
 function App() {
-  const { connected, disconnect, restore, restoring } = useConnectionStore();
+  const { connected, restore, restoring } = useConnectionStore();
   const [selection, setSelection] = useState<DbObjectSelection | null>(() => pathToSelection(window.location.pathname));
   const [rowCount, setRowCount] = useState<number | null>(null);
   const [lastQueryTime, setLastQueryTime] = useState<number | null>(null);
