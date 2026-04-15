@@ -1,0 +1,106 @@
+name: Release & Docker Push
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  DOCKER_IMAGE_SERVER: zlomerovic/firebird-web-server
+  DOCKER_IMAGE_CLIENT: zlomerovic/firebird-web-client
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check server
+        run: npx tsc --noEmit -p server/tsconfig.json
+
+      - name: Type check client
+        run: npx tsc --noEmit -p client/tsconfig.app.json
+
+      - name: Build client
+        run: npm run build -w client
+
+  release:
+    name: Release & Push Docker
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build & Push Server Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./server
+          push: true
+          tags: |
+            ${{ env.DOCKER_IMAGE_SERVER }}:${{ steps.version.outputs.version }}
+            ${{ env.DOCKER_IMAGE_SERVER }}:latest
+
+      - name: Build & Push Client Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./client
+          push: true
+          tags: |
+            ${{ env.DOCKER_IMAGE_CLIENT }}:${{ steps.version.outputs.version }}
+            ${{ env.DOCKER_IMAGE_CLIENT }}:latest
+
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ steps.version.outputs.version }}" -m "Release v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}" || true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          body: |
+            ## Firebird Web Client v${{ steps.version.outputs.version }}
+
+            ### Docker
+            ```bash
+            docker pull zlomerovic/firebird-web-client:${{ steps.version.outputs.version }}
+            docker pull zlomerovic/firebird-web-server:${{ steps.version.outputs.version }}
+            ```
+
+            ### Docker Compose
+            ```bash
+            docker compose up -d
+            ```
+            Open http://localhost:6969
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, 'beta') || contains(steps.version.outputs.version, 'alpha') }}

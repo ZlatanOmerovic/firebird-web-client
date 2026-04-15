@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: firebird-web-server
+    environment:
+      - PORT=3001
+      - CORS_ORIGIN=*
+    expose:
+      - "3001"
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: firebird-web-client
+    ports:
+      - "6969:80"
+    depends_on:
+      - server
+    restart: unless-stopped
