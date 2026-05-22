@@ -22,7 +22,7 @@ const SUBTEXTS: Record<string, string> = {
   'desktop-only': 'clients?',
 };
 
-const TOTAL_DURATION = 29;
+const TOTAL_DURATION = 31;
 
 export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [phase, setPhase] = useState<'idle' | 'waiting' | 'playing' | 'fading'>('idle');

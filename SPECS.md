@@ -206,8 +206,6 @@ firebird-web-client/
 ### Editor
 `FirebirdCodeEditor`, `SqlHighlight`
 
-### Visual
-`SplashScreen`, `OutroScreen`, `AudioVisualizer`, `ReactiveBackground`
 
 ---
 

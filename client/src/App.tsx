@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useConnectionStore } from './store/connectionStore';
 import { SplashScreen } from './components/SplashScreen';
+import { ThumbnailScreen } from './components/ThumbnailScreen';
 import { OutroScreen } from './components/OutroScreen';
 import { ConnectionPanel } from './components/ConnectionPanel';
 import { Sidebar, type DbObjectSelection } from './components/Sidebar';
@@ -127,14 +128,15 @@ function getSelectionLabel(sel: DbObjectSelection | null): string {
 }
 
 function App() {
+  // const THUMBNAIL = true; return <ThumbnailScreen />;
   const { connected, restore, restoring } = useConnectionStore();
   const [selection, setSelection] = useState<DbObjectSelection | null>(() => pathToSelection(window.location.pathname));
   const [rowCount, setRowCount] = useState<number | null>(null);
   const [lastQueryTime, setLastQueryTime] = useState<number | null>(null);
   const { dark, toggle: toggleTheme } = useThemeToggle();
-  const [showSplash, setShowSplash] = useState(false); // TODO: set back to true
+  const [showSplash, setShowSplash] = useState(false);
   const [showOutro, setShowOutro] = useState(false);
-  const ENABLE_CINEMATIC = false; // TODO: set back to true
+  const ENABLE_CINEMATIC = false;
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [showDisconnectModal, setShowDisconnectModal] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => localStorage.getItem('firebird-sidebar-collapsed') === '1');

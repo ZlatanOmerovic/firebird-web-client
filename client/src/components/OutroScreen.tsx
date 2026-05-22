@@ -161,14 +161,17 @@ export function OutroScreen() {
           style={{ opacity: sectionOpacity('soon', elapsed) }}
         >
           <p className="text-4xl md:text-5xl font-light text-white/70 tracking-wide leading-relaxed">
-            Soon at your <span className="font-semibold" style={{
+            At your <span className="font-semibold" style={{
               background: 'linear-gradient(135deg, #3b82f6, #818cf8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.2))',
-            }}>service</span>
+            }}>command</span>
           </p>
-          <div className="w-12 h-px bg-white/8 mt-8" />
+          <div className="w-12 h-px bg-white/8 mt-6" />
+          <p className="text-sm text-white/30 tracking-widest uppercase mt-6">
+            Free and open source. No licenses. No subscriptions. Just like <span className="text-orange-400">Firebird</span>.
+          </p>
         </div>
 
         {/* Section 5: Thank you — stays visible forever */}

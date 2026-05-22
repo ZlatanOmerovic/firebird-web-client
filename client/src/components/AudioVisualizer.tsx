@@ -189,11 +189,11 @@ export function AudioVisualizer({ audio, visible, position, compact = false }: A
       <div
         className="fixed z-[110] pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
-          top: compact ? '6px' : '6px',
+          top: compact ? '-2px' : '6px',
           left: compact ? 'auto' : '0',
-          right: compact ? '250px' : '100px',
-          height: compact ? '32px' : '40px',
-          width: compact ? '55%' : 'auto',
+          right: compact ? '475px' : '100px',
+          height: compact ? '45px' : '40px',
+          width: compact ? '38%' : 'auto',
         }}
       >
         <div
